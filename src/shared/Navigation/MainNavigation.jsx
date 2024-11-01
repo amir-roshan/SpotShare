@@ -1,6 +1,9 @@
-import './MainNavIgation.css';
-import MainHeader from './MainHeader';
 import { Link } from 'react-router-dom';
+
+import MainHeader from './MainHeader';
+import NavLinks from './NavLinks';
+
+import './MainNavIgation.css';
 
 const MainNavigation = () => {
     return (
@@ -17,7 +20,7 @@ const MainNavigation = () => {
                     </Link>
                 </h1>
                 <nav>
-                    ...
+                    <NavLinks />
                 </nav>
             </MainHeader>
         </>
