@@ -8,6 +8,7 @@ import './App.css';
 import Users from "./users/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
 import MainNavigation from "./shared/Navigation/MainNavIgation";
+import UserPlaces from "./places/pages/UserPlaces";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={< Users />} />
                     <Route path="/places/new" element={<NewPlace />} />
+                    <Route path="/:userId/places" element={<UserPlaces />} />
                     <Route path="*" element={< Users />} />
                 </Routes>
             </main>

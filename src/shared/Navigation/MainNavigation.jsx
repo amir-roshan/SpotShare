@@ -6,7 +6,8 @@ import MainHeader from './MainHeader';
 import NavLinks from './NavLinks';
 import SideDrawer from './SideDrawer';
 import { useState } from 'react';
-import Backdrop from '../components/UI/Backdrop';
+import Backdrop from '../../shared/components/UI/Backdrop';
+
 
 const MainNavigation = () => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
