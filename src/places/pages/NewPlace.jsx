@@ -5,7 +5,13 @@ const NewPlace = () => {
   return (
     <>
       <form className="place-form">
-        <Input type="text" label="Title" element="input"></Input>
+        <Input
+          type="text"
+          label="Title"
+          element="input"
+          validators={[]}
+          error={"Please enter a valid title."}
+        ></Input>
       </form>
     </>
   );
