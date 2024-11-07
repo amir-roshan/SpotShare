@@ -28,7 +28,7 @@ const PlaceItem = ({ id, image, title, address, description, coordinates }) => {
       >
         <div className="map-container">
           <APIProvider
-            apiKey={"AIzaSyDfhxu4O1gId47bvsjGRsm-4zSCoqEKybs"}
+            apiKey={import.meta.env.VITE_MAP_API_KEY}
             onLoad={() => console.log("Maps API has loaded.")}
           >
             <Map
