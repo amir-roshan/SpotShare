@@ -3,8 +3,9 @@ import Button from "../../shared/components/FormElements/Button";
 import Card from "../../shared/components/UI/Card";
 import "./PlaceItem.css";
 import Modal from "../../shared/components/UI/Modal";
+import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
-const PlaceItem = ({ id, image, title, address, description }) => {
+const PlaceItem = ({ id, image, title, address, description, coordinates }) => {
   const [showMap, setShowMap] = useState(false);
 
   const openMapHandler = () => {
@@ -26,7 +27,25 @@ const PlaceItem = ({ id, image, title, address, description }) => {
         footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
       >
         <div className="map-container">
-          <h2>The Map</h2>
+          <APIProvider
+            apiKey={"AIzaSyDfhxu4O1gId47bvsjGRsm-4zSCoqEKybs"}
+            onLoad={() => console.log("Maps API has loaded.")}
+          >
+            <Map
+              defaultZoom={16}
+              defaultCenter={coordinates}
+              onCameraChanged={(ev) =>
+                console.log(
+                  "camera changed:",
+                  ev.detail.center,
+                  "zoom:",
+                  ev.detail.zoom
+                )
+              }
+            >
+              <Marker position={coordinates} />
+            </Map>
+          </APIProvider>
         </div>
       </Modal>
       <li className="place-item">
