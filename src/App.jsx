@@ -5,6 +5,7 @@ import Users from "./users/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import UserPlaces from "./places/pages/UserPlaces";
+import UpdatePlace from "./places/pages/UpdatePlace";
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
           <Route path="/" element={<Users />} />
           <Route path="/places/new" element={<NewPlace />} />
           <Route path="/:userId/places" element={<UserPlaces />} />
+          {/* Order matters in routes */}
+          <Route path="/places/:placeId" element={<UpdatePlace />} />
           <Route path="*" element={<Users />} />
         </Routes>
       </main>

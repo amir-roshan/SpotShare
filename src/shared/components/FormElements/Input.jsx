@@ -30,18 +30,20 @@ const Input = ({
   validators,
   error,
   onInput,
+  initialValue = "",
+  initialValid = false,
 }) => {
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: "",
-    isValid: false,
+    value: initialValue,
+    isValid: initialValid,
     isTouch: false,
   });
 
-  const { value, isValid } = inputState;
+  const { value: inputValue, isValid: inputIsValid } = inputState;
 
   useEffect(() => {
-    onInput(id, value, isValid);
-  }, [id, value, isValid, onInput]);
+    onInput(id, inputValue, inputIsValid);
+  }, [id, inputValue, inputIsValid, onInput]);
 
   const changeHandler = (event) => {
     dispatch({

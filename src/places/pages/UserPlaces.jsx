@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 
 import PlaceList from "../components/PlaceList";
 
-const UserPlaces = () => {
+export const UserPlaces = () => {
   const DUMMY_PLACES = [
     {
       id: "p1",
-      image:
+      imageUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFg9lIo9D1LEh4_4p0V9LvFk2LKj4WvjqsYw&s",
       title: "Beautiful Beach",
       description: "A serene beach with golden sands and crystal-clear water.",
@@ -16,7 +16,7 @@ const UserPlaces = () => {
     },
     {
       id: "p2",
-      image:
+      imageUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFg9lIo9D1LEh4_4p0V9LvFk2LKj4WvjqsYw&s",
       title: "Mountain Cabin",
       description: "A cozy cabin in the mountains with breathtaking views.",
