@@ -10,6 +10,7 @@ import {
 } from "../../shared/utils/validators";
 
 import "./PlaceForm.css";
+import { useEffect, useState } from "react";
 
 const DUMMY_PLACES = [
   {
@@ -45,11 +46,12 @@ const DUMMY_PLACES = [
 ];
 
 const UpdatePlace = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const placeId = useParams().placeId;
 
   const place = DUMMY_PLACES.find((place) => place.id === placeId);
 
-  const [formState, inputHandler] = useForm(
+  const [formState, inputHandler, setFormData] = useForm(
     {
       title: {
         value: place ? place.title : "",
@@ -63,15 +65,41 @@ const UpdatePlace = () => {
     !!place
   );
 
-  if (!place) {
-    return <div className="center">{"Place not found"}</div>;
-  }
+  useEffect(() => {
+    setFormData(
+      {
+        title: {
+          value: place ? place.title : "",
+          isValid: true,
+        },
+        description: {
+          value: place ? place.description : "",
+          isValid: true,
+        },
+      },
+      true
+    );
+    setIsLoading(false);
+  }, [setFormData, place]);
 
   const placeUpdateSubmitHandler = (event) => {
     event.preventDefault();
     console.log(formState.inputs);
   };
 
+  if (!place) {
+    return <div className="center">{"Place not found"}</div>;
+  }
+
+  if (isLoading) {
+    return (
+      <>
+        <div className="center">
+          <h2>Loading...</h2>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
