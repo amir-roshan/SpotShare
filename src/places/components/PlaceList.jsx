@@ -1,6 +1,7 @@
 import Card from "../../shared/components/UI/Card";
 import PlaceItem from "./PlaceItem";
 import "./PlaceList.css";
+import Button from "../../shared/components/FormElements/Button";
 
 const PlaceList = ({ items }) => {
   if (items.length === 0) {
@@ -8,7 +9,7 @@ const PlaceList = ({ items }) => {
       <div className="place-list center">
         <Card>
           <h2>No places found :(</h2>
-          <button>Share Place</button>
+          <Button to="/places/new">Share Place</Button>
         </Card>
       </div>
     );

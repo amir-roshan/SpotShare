@@ -8,6 +8,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/utils/validators";
+import Card from "../../shared/components/UI/Card";
 
 import "./PlaceForm.css";
 import { useEffect, useState } from "react";
@@ -88,7 +89,13 @@ const UpdatePlace = () => {
   };
 
   if (!place) {
-    return <div className="center">{"Place not found"}</div>;
+    return (
+      <div className="center">
+        <Card>
+          <h2>{"Place not found"}</h2>
+        </Card>
+      </div>
+    );
   }
 
   if (isLoading) {
