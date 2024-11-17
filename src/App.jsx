@@ -6,6 +6,7 @@ import NewPlace from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import UserPlaces from "./places/pages/UserPlaces";
 import UpdatePlace from "./places/pages/UpdatePlace";
+import Auth from "./users/pages/Auth";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           {/* Order matters in routes */}
           <Route path="/places/:placeId" element={<UpdatePlace />} />
           <Route path="*" element={<Users />} />
+          <Route path="/auth" element={<Auth />} />
         </Routes>
       </main>
     </Router>
