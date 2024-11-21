@@ -1,4 +1,4 @@
-import "./MainNavIgation.css";
+import "./MainNavigation.css";
 
 import { Link } from "react-router-dom";
 
