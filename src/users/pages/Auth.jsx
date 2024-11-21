@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Button from "../../shared/components/FormElements/Button";
 import Input from "../../shared/components/FormElements/Input";
 import Card from "../../shared/components/UI/Card";
@@ -12,6 +14,7 @@ import {
 } from "../../shared/utils/validators";
 
 import "./Auth.css";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const Auth = () => {
   const [isLoginMode, setIsLoginMode] = useState(true);
@@ -29,9 +32,14 @@ const Auth = () => {
     false
   );
 
+  const auth = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const placeUpdateSubmitHandler = (event) => {
     event.preventDefault();
     console.log(formState.inputs);
+    auth.login();
+    navigate("/");
   };
 
   const switchModeHandler = () => {
