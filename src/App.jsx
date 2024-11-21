@@ -17,7 +17,7 @@ const App = () => {
   }, []);
 
   const logout = useCallback(() => {
-    setIsloggedIn(true);
+    setIsloggedIn(false);
   }, []);
 
   let routes;
@@ -34,7 +34,7 @@ const App = () => {
         </Routes>
       </>
     );
-  } else {
+  } else if (!isLoggedIn) {
     routes = (
       <>
         <Routes>

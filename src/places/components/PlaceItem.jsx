@@ -5,7 +5,11 @@ import "./PlaceItem.css";
 import Modal from "../../shared/components/UI/Modal";
 import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
+import { useContext } from "react";
+import { AuthContext } from "../../shared/context/auth-context";
+
 const PlaceItem = ({ id, image, title, address, description, coordinates }) => {
+  const auth = useContext(AuthContext);
   const [showMap, setShowMap] = useState(false);
 
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -98,10 +102,12 @@ const PlaceItem = ({ id, image, title, address, description, coordinates }) => {
             <Button inverse onClick={openMapHandler}>
               VIEW ON MAP
             </Button>
-            <Button to={`/places/${id}`}>EDIT</Button>
-            <Button danger onClick={showDeleteWarningHandler}>
-              DELETE
-            </Button>
+            {auth.isLoggedIn && <Button to={`/places/${id}`}>EDIT</Button>}
+            {auth.isLoggedIn && (
+              <Button danger onClick={showDeleteWarningHandler}>
+                DELETE
+              </Button>
+            )}
           </div>
         </Card>
       </li>
